@@ -1,0 +1,41 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          diskmon
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 5
+# Default-Stop:
+# Short-Description: Disk Monitor
+# Description: Monitors disk usage and send
+#              an e-mail if it is too high
+### END INIT INFO
+
+RUN_DIR=/home/pi/disk_monitor
+LOG_FILE=disk_mon.log
+
+case "$1" in
+  start)
+
+    if [ -e $RUN_DIR/$LOG_FILE ];
+        then
+            file_size=`du -k "$RUN_DIR/$LOG_FILE" | cut -f1`
+        else
+            file_fsize=0
+    fi
+
+    if [ $file_size -gt 100 ];
+        then
+            rm $RUN_DIR/$LOG_FILE
+    fi
+
+    $RUN_DIR/disk-mon.py
+
+    ;;
+
+  *)
+    break
+    ;;
+
+esac
+
+

@@ -1,0 +1,16 @@
+# Parameters:
+
+# FROM           : Sender's e-mail address.
+# TO             : Recipient's e-mail address.
+# USAGE_HIGH     : Message when the disk usage is above the threshold.
+# USAGE_NORMAL   : Message when the disk usage is back to normal.
+# USAGE_CRITICAL : Message when the disk usage is above the critical level.
+# MSG_CRITICAL   : Additional message when the disk is above the critical level.
+
+FROM           = ""
+TO             = ""
+USAGE_HIGH     = "Disk usage is too high!"
+USAGE_NORMAL   = "Disk usage is back to normal"
+USAGE_CRITICAL = "DISK USAGE IS CRITICALLY HIGH!!!"
+MSG_CRITICAL   = "Some log files were removed and the system rebooted trying to free some space."
+
