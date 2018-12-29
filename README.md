@@ -1,6 +1,6 @@
 # Disk Monitor for Raspberry Pi
 
-This is a script to monitor the disk usage of a Raspberry Pi. It sends warning e-mails when the usage is above a threshold level and remove logs and reboot the device if above a critical level.
+This is a script to monitor the disk (SD Card) usage of a Raspberry Pi. It sends warning e-mails when the usage is above a threshold level and remove logs and reboot the device if above a critical level.
 
 ## Installation
 
