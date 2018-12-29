@@ -35,7 +35,7 @@ def send_email(email_from, email_to, subject, critical_msg, usage):
 def remove_log_files():
     os.system("rm -f /var/log/apt/*.log")
     os.system("rm -f /var/log/nginx/*.log")
-    os.system("rm -f /var/log/clamav/*.log")
+    os.system("rm -f /var/log/clamav/*.log*")
     os.system("rm -f /var/log/supervisor/*.log")
     os.system("rm -f /var/log/*.log")
 
@@ -61,7 +61,7 @@ while True:
         exit(0)
 
     if i > config.MON_INTERVAL:
-        if usage > config.USAGE_THRESHOLD:
+        if usage > config.USAGE_HIGH:
             if disk_ok:
                 disk_ok = False
                 write_log(usage, "HIGH")
