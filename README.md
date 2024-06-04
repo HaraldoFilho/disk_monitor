@@ -15,14 +15,6 @@ cd disk_monitor
 ./install.sh
 ```
 
-The file _/etc/sudoers_ will be automatically opened for edit. Add the following line to it:
-
-```
-root   ALL=(ALL) NOPASSWD: /sbin/reboot
-```
-
-This will permit that the device can be rebooted without asking for a password.
-
 ## Configuration
 
 There are two configuration files with default values that can be modified by the user:

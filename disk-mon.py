@@ -33,15 +33,7 @@ def send_email(email_from, email_to, subject, critical_msg, usage):
         pass
 
 def remove_log_files():
-    os.system("rm -f /var/log/apt/*.log")
-    os.system("rm -f /var/log/nginx/*.log")
-    os.system("rm -f /var/log/clamav/*.log*")
-    os.system("rm -f /var/log/supervisor/*.log")
-    os.system("rm -f /var/log/*.log")
-
-def reboot_system():
-    os.system("sudo umount -a")
-    os.system("sudo reboot -h now")
+    os.system("sudo rm -fr /var/log/*")
 
 
 ### MAIN ###
@@ -57,8 +49,6 @@ while True:
         write_log(usage, "CRITICAL")
         send_email(mail.FROM, mail.TO, mail.USAGE_CRITICAL, mail.MSG_CRITICAL, usage)
         remove_log_files()
-        reboot_system()
-        exit(0)
 
     if i > config.MON_INTERVAL:
         if usage > config.USAGE_HIGH:
