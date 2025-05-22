@@ -11,7 +11,7 @@ from datetime import datetime
 ### FUNCTIONS ###
 
 def read_disk():
-    df = os.popen("df -lh | grep /dev/root").readline()
+    df = os.popen("df -lh | grep /dev/mmcblk0p2").readline()
     usage = df.split()[4].split('%')[0]
     return int(usage)
 
